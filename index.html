@@ -1,423 +1,160 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kelter Home — Life is complicated. Your home doesn't have to be. Coming soon.">
-  <title>Kelter Home | Coming Soon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream: #F2F0EB;
-      --white: #FAFAF8;
-      --text: #111111;
-      --text-mid: #555555;
-      --text-muted: #999999;
-      --navy: #1B3A5C;
-      --slate: #4A6FA5;
-      --slate-light: #6B8FC4;
-      --border: rgba(0,0,0,0.1);
-      --font: "DM Sans", sans-serif;
-      --ease: 0.25s cubic-bezier(0.4,0,0.2,1);
-    }
+---
+layout: default
+title: Home
+description: Life is complicated. Your home doesn't have to be. Kelter Home brings intentional systems to the place that matters most.
+---
 
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { font-size:16px; scroll-behavior:smooth; }
-    body {
-      font-family: var(--font);
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* NAV */
-    nav {
-      padding: 24px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .nav-brand-name {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-    .nav-brand-sub {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .nav-link {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      transition: color var(--ease);
-    }
-    .nav-link:hover { color: var(--navy); }
-
-    /* HERO */
-    .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 48px;
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .coming-soon-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 32px;
-    }
-    .coming-soon-tag::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--slate);
-    }
-    .hero-headline {
-      font-size: clamp(40px, 7vw, 96px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-    .hero-headline span {
-      color: var(--navy);
-    }
-    .hero-sub {
-      font-size: clamp(18px, 2.5vw, 26px);
-      font-weight: 300;
-      color: var(--text-mid);
-      line-height: 1.5;
-      max-width: 600px;
-      margin-bottom: 48px;
-    }
-    .hero-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 48px;
-    }
-    .hero-description {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.8;
-      max-width: 560px;
-      margin-bottom: 56px;
-    }
-
-    /* SIGNUP */
-    .signup-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      margin-bottom: 16px;
-    }
-    .signup-form {
-      display: flex;
-      gap: 0;
-      max-width: 480px;
-    }
-    .signup-form input {
-      flex: 1;
-      padding: 14px 20px;
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-right: none;
-      border-radius: 2px 0 0 2px;
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--text);
-      outline: none;
-      transition: border-color var(--ease);
-    }
-    .signup-form input:focus {
-      border-color: var(--slate);
-    }
-    .signup-form input::placeholder {
-      color: var(--text-muted);
-    }
-    .signup-form button {
-      padding: 14px 24px;
-      background: var(--navy);
-      color: #fff;
-      border: none;
-      border-radius: 0 2px 2px 0;
-      font-family: var(--font);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background var(--ease);
-      white-space: nowrap;
-    }
-    .signup-form button:hover { background: var(--slate); }
-    .signup-note {
-      font-size: 11px;
-      font-weight: 300;
-      color: var(--text-muted);
-      margin-top: 10px;
-    }
-
-    /* SUCCESS */
-    .signup-success {
-      display: none;
-      max-width: 480px;
-    }
-    .signup-success-inner {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 24px 28px;
-    }
-    .signup-success h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .signup-success p {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    /* SURVEY */
-    .survey {
-      display: none;
-      margin-top: 24px;
-      max-width: 480px;
-    }
-    .survey-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-mid);
-      margin-bottom: 12px;
-    }
-    .survey-options {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .survey-option {
-      padding: 12px 18px;
-      background: var(--cream);
-      border: 1.5px solid var(--border);
-      border-radius: 2px;
-      font-family: var(--font);
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text-mid);
-      text-align: left;
-      cursor: pointer;
-      transition: all var(--ease);
-    }
-    .survey-option:hover {
-      border-color: var(--slate);
-      color: var(--navy);
-    }
-    .survey-option.selected {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
-    }
-    .survey-thanks {
-      display: none;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text-muted);
-      margin-top: 12px;
-      font-style: italic;
-    }
-
-    /* PILLARS */
-    .pillars {
-      padding: 0 48px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .pillars-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .pillars-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .pillar-tag {
-      padding: 6px 14px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--text-mid);
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 24px 48px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    footer p {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-    footer a {
-      font-size: 11px;
-      color: var(--slate);
-      transition: color var(--ease);
-    }
-    footer a:hover { color: var(--navy); }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 20px 24px; }
-      .hero { padding: 48px 24px; }
-      .pillars { padding: 0 24px 48px; }
-      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
-      .signup-form { flex-direction: column; }
-      .signup-form input { border-right: 1.5px solid var(--border); border-bottom: none; border-radius: 2px 2px 0 0; }
-      .signup-form button { border-radius: 0 0 2px 2px; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-brand">
-      <div class="nav-brand-name">Kelter Home</div>
-      <div class="nav-brand-sub">by Kelter Group</div>
+<!-- HERO -->
+<section style="background:var(--slate-dark); padding: 160px 48px 100px;">
+  <div style="max-width:800px; margin:0 auto;">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.5); margin-bottom:24px;">
+      <span style="display:block;width:24px;height:2px;background:rgba(255,255,255,0.3);flex-shrink:0;"></span>
+      Kelter Home
     </div>
-    <a href="https://keltergroup.com" class="nav-link">Kelter Group &rarr;</a>
-  </nav>
+    <h1 style="font-size:clamp(48px,8vw,100px); font-weight:700; letter-spacing:-0.04em; line-height:0.92; color:#fff; margin-bottom:28px;">
+      Life is complicated.<br>Your home<br>doesn't have to be.
+    </h1>
+    <p style="font-size:clamp(16px,2vw,22px); font-weight:300; color:rgba(255,255,255,0.65); line-height:1.6; max-width:560px; margin-bottom:40px;">
+      Home is where life happens. We help you handle it.
+    </p>
+    <div class="btn-group" style="margin-top:0;">
+      <a href="/operations" class="btn-primary">How It Works</a>
+      <a href="/contact" class="btn-ghost-white">Get In Touch</a>
+    </div>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <main class="hero">
-    <div class="coming-soon-tag">Coming Soon</div>
-    <h1 class="hero-headline">Life is complicated.<br><span>Your home</span><br>doesn't have to be.</h1>
-    <p class="hero-sub">Home is where life happens. We help you handle it.</p>
-    <div class="hero-divider"></div>
-    <p class="hero-description">Most people manage their homes the same way they always have: reacting, improvising, exhausted. There's a better way. Kelter Home brings intentional systems to the place that matters most, helping families run their homes with less noise and more of what actually matters.</p>
-
-    <div class="signup-label">Stay in the loop</div>
-    <form class="signup-form" id="signupForm">
-      <input type="email" id="signupEmail" placeholder="your@email.com" required>
-      <button type="submit">Notify Me</button>
-    </form>
-    <p class="signup-note">Optional. No spam. Just a note when we launch.</p>
-
-    <!-- SUCCESS + SURVEY -->
-    <div class="signup-success" id="signupSuccess">
-      <div class="signup-success-inner">
-        <h3>You're on the list.</h3>
-        <p>We'll reach out when Kelter Home launches. One quick question while we have you:</p>
-        <div class="survey" id="survey" style="display:block;">
-          <div class="survey-label">What brings you to Kelter Home?</div>
-          <div class="survey-options">
-            <button class="survey-option" data-value="daily">Managing the daily chaos of a busy home</button>
-            <button class="survey-option" data-value="transition">Navigating a major life transition</button>
-            <button class="survey-option" data-value="planning">Planning ahead for life events</button>
-            <button class="survey-option" data-value="estate">Managing a complex home or estate</button>
-          </div>
-          <div class="survey-thanks" id="surveyThanks">Thank you — that helps us build something useful for you.</div>
-        </div>
+<!-- WHAT IS KELTER HOME -->
+<section class="section section-white">
+  <div class="section-inner">
+    <div style="max-width:680px;">
+      <div class="eyebrow">What We Do</div>
+      <h2 class="sec-title">Most people manage their homes the same way they always have.</h2>
+      <p class="sec-body" style="margin-top:16px;">Reacting. Improvising. Exhausted. There's a better way.</p>
+      <p class="sec-body" style="margin-top:16px;">Kelter Home brings intentional systems to the place that matters most, helping families run their homes with less noise and more of what actually matters. We built this from the chaos we lived through and the systems we built to survive it.</p>
+      <div class="btn-group">
+        <a href="/about" class="btn-ghost">Our Story</a>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <!-- PILLARS -->
-  <section class="pillars">
-    <div class="pillars-label">What we're building</div>
-    <div class="pillars-grid">
-      <div class="pillar-tag">Home Supply Chain</div>
-      <div class="pillar-tag">Preventive Maintenance</div>
-      <div class="pillar-tag">Home Administration</div>
-      <div class="pillar-tag">Education and Development</div>
-      <div class="pillar-tag">Focused Improvement</div>
-      <div class="pillar-tag">Life Events Navigation</div>
-      <div class="pillar-tag">Estate and Transition Support</div>
-      <div class="pillar-tag">Concierge Services</div>
+<!-- TWO PROGRAMS -->
+<section class="section" style="background:var(--cream); padding-top:0;">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <!-- Core Operations -->
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:2px; padding:48px;">
+        <div class="eyebrow">Program 01</div>
+        <h2 style="font-size:28px; font-weight:700; letter-spacing:-0.02em; color:var(--text); margin-bottom:16px;">Core Operations</h2>
+        <p style="font-size:15px; font-weight:300; color:var(--text-mid); line-height:1.8; margin-bottom:28px;">The ongoing systems that keep a home running well every day. Supply chain, maintenance, administration, education, and continuous improvement, built around how your family actually lives.</p>
+        <a href="/operations" class="btn-ghost">Learn More</a>
+      </div>
+
+      <!-- Life Events -->
+      <div style="background:var(--slate-dark); border:1px solid rgba(255,255,255,0.08); border-radius:2px; padding:48px;">
+        <div style="display:flex; align-items:center; gap:10px; font-size:10px; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px;">
+          <span style="display:block;width:24px;height:2px;background:rgba(255,255,255,0.3);flex-shrink:0;"></span>
+          Program 02
+        </div>
+        <h2 style="font-size:28px; font-weight:700; letter-spacing:-0.02em; color:#fff; margin-bottom:16px;">Life Events</h2>
+        <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:28px;">When life changes, a new child, a death, a move, a diagnosis, the home has to keep running. We help families navigate ten of life's most disruptive transitions with clarity and a plan.</p>
+        <a href="/life-events" class="btn-ghost-white">Learn More</a>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 Kelter Home. Part of the <a href="https://keltergroup.com">Kelter Group</a> family.</p>
-    <p>Brandon and Mikeila Morgan, Brevard, NC</p>
-  </footer>
+<!-- THE FOUNDERS -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <div style="max-width:680px;">
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="sec-title">Built by people who have been through it.</h2>
+      <p class="sec-body" style="margin-top:16px;">The name Kelter goes back to 1828, when General William Lindsay Brandon founded the Kelter Club in Natchez, Mississippi. He was Brandon's third great-grandfather. We have his portrait. We have his sword.</p>
+      <p class="sec-body" style="margin-top:16px;">Between us, we have bought and sold homes, raised children, lost parents, navigated divorce, remarried, dissolved estates, and survived hurricanes. We know what it feels like when life gets hard and the home still has to run.</p>
+      <div class="btn-group">
+        <a href="/about" class="btn-primary">Our Full Story</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Email signup
-    const form = document.getElementById('signupForm');
-    const success = document.getElementById('signupSuccess');
+<!-- EMAIL SIGNUP -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div style="max-width:600px;">
+      <div style="display:flex; align-items:center; gap:10px; font-size:10px; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px;">
+        <span style="display:block;width:24px;height:2px;background:rgba(255,255,255,0.3);flex-shrink:0;"></span>
+        Stay in the loop
+      </div>
+      <h2 class="sec-title" style="color:#fff; margin-bottom:12px;">We're just getting started.</h2>
+      <p class="sec-body" style="color:rgba(255,255,255,0.55); margin-bottom:32px;">Sign up to hear when new resources, programs, and services launch. No spam. Just a note when something worth knowing is ready.</p>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      form.style.display = 'none';
-      document.querySelector('.signup-note').style.display = 'none';
-      document.querySelector('.signup-label').style.display = 'none';
-      success.style.display = 'block';
-    });
+      <form id="signupForm" style="display:flex; gap:0; max-width:480px;">
+        <input type="email" id="signupEmail" placeholder="your@email.com" required
+          style="flex:1; padding:14px 20px; background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.15); border-right:none; border-radius:2px 0 0 2px; font-family:var(--font); font-size:14px; font-weight:300; color:#fff; outline:none;">
+        <button type="submit" class="btn-primary" style="border-radius:0 2px 2px 0; white-space:nowrap;">Notify Me</button>
+      </form>
+      <p style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:10px;">Optional. We respect your inbox.</p>
 
-    // Survey
-    document.querySelectorAll('.survey-option').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.survey-option').forEach(b => b.classList.remove('selected'));
-        this.classList.add('selected');
-        setTimeout(() => {
-          document.getElementById('surveyThanks').style.display = 'block';
-          document.querySelector('.survey-options').style.opacity = '0.4';
-          document.querySelector('.survey-options').style.pointerEvents = 'none';
-        }, 300);
+      <div id="signupSuccess" style="display:none; margin-top:24px;">
+        <p style="font-size:16px; font-weight:500; color:#fff; margin-bottom:8px;">You're on the list.</p>
+        <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.55); margin-bottom:20px;">One quick question while we have you:</p>
+        <p style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.7); margin-bottom:12px;">What brings you to Kelter Home?</p>
+        <div style="display:flex; flex-direction:column; gap:8px; max-width:480px;">
+          <button class="survey-option" data-value="daily">Managing the daily chaos of a busy home</button>
+          <button class="survey-option" data-value="transition">Navigating a major life transition</button>
+          <button class="survey-option" data-value="planning">Planning ahead for life events</button>
+          <button class="survey-option" data-value="estate">Managing a complex home or estate</button>
+        </div>
+        <p id="surveyThanks" style="display:none; font-size:13px; color:rgba(255,255,255,0.4); margin-top:12px; font-style:italic;">Thank you. That helps us build something useful for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.survey-option {
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 2px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.survey-option:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+.survey-option.selected { background: var(--navy); border-color: var(--slate); color: #fff; }
+</style>
+
+<script>
+const form = document.getElementById('signupForm');
+const success = document.getElementById('signupSuccess');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  form.style.display = 'none';
+  form.nextElementSibling.style.display = 'none';
+  success.style.display = 'block';
+});
+document.querySelectorAll('.survey-option').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.survey-option').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    setTimeout(() => {
+      document.getElementById('surveyThanks').style.display = 'block';
+      document.querySelectorAll('.survey-option').forEach(b => {
+        b.style.opacity = '0.4';
+        b.style.pointerEvents = 'none';
       });
-    });
-  </script>
-
-</body>
-</html>
+    }, 300);
+  });
+});
+</script>
