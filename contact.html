@@ -81,11 +81,16 @@ description: Contact Kelter Home — start a conversation with Brandon and Mikei
       message: form.querySelector('#message').value
     };
 
-    try {
-      form.style.display = 'none';
-      success.style.display = 'block';
-    } catch (err) {
-      alert('Something went wrong. Please email us directly at brandon.morgan@keltergroup.com');
-    }
+  try {
+  await fetch('https://default70f40da099aa40fc8e619406d53f1d.9c.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/71d1b4060473427a84b5f2ed631a9567/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Gq6YBakqrwSZqa44kRPLf1WzqyHuM0k93sv_bKG8Nw0', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  form.style.display = 'none';
+  success.style.display = 'block';
+} catch (err) {
+  alert('Something went wrong. Please email us directly at brandon.morgan@keltergroup.com');
+}
   });
 </script>
