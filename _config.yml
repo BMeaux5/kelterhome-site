@@ -1,0 +1,16 @@
+title: Kelter Home
+description: Life is complicated. Your home doesn't have to be.
+url: https://kelterhome.com
+baseurl: ""
+
+markdown: kramdown
+permalink: /:title/
+
+exclude:
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
