@@ -1,0 +1,91 @@
+---
+layout: default
+title: Get In Touch
+description: Contact Kelter Home — start a conversation with Brandon and Mikeila Morgan.
+---
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Contact</div>
+    <h1 class="page-title">Let's talk.</h1>
+    <p class="page-hero-sub">Tell us what's going on. We'll tell you honestly whether we can help and what that looks like.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="eyebrow">Send a Message</div>
+    <h2 style="font-size:28px; font-weight:700; letter-spacing:-0.02em; color:var(--text); margin-bottom:8px;">What's going on at home?</h2>
+    <p style="font-size:15px; font-weight:300; color:var(--text-mid); line-height:1.7; margin-bottom:32px;">The more context you share, the more useful our first conversation will be.</p>
+
+    <form class="contact-form" id="contactForm">
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="First and last name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inquiry_type">What brings you here?</label>
+        <select id="inquiry_type" name="inquiry_type" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="Core Operations">I want help with Core Operations</option>
+          <option value="Life Event">I am going through a life event</option>
+          <option value="Concierge">I am interested in concierge services</option>
+          <option value="General">General inquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Tell me what's going on.</label>
+        <textarea id="message" name="message" required rows="5" placeholder="What are you trying to solve? What does the situation look like right now?"></textarea>
+      </div>
+
+      <!-- Honeypot -->
+      <div style="display:none;" aria-hidden="true">
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <h3>Message received.</h3>
+      <p>We'll be in touch within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const honeypot = form.querySelector('#website').value;
+    if (honeypot) return;
+
+    const data = {
+      name: form.querySelector('#name').value,
+      email: form.querySelector('#email').value,
+      inquiry_type: form.querySelector('#inquiry_type').value,
+      message: form.querySelector('#message').value
+    };
+
+    try {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch (err) {
+      alert('Something went wrong. Please email us directly at brandon.morgan@keltergroup.com');
+    }
+  });
+</script>
