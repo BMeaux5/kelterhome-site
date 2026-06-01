@@ -49,8 +49,11 @@ img { display: block; max-width: 100%; }
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--text);
+  color: rgba(255,255,255,0.9);
   transition: color var(--ease);
+}
+#nav.scrolled .nav-logo {
+  color: var(--text);
 }
 .nav-logo:hover { color: var(--navy); }
 .nav-links {
@@ -70,6 +73,8 @@ img { display: block; max-width: 100%; }
 .nav-links a:hover { color: var(--navy); }
 #nav.scrolled .nav-links a { color: var(--text-mid); }
 #nav.scrolled .nav-links a:hover { color: var(--navy); }
+#nav.scrolled .nav-links a.nav-cta { background: var(--navy); color: #fff; }
+#nav.scrolled .nav-links a.nav-cta:hover { background: var(--slate); }
 .nav-links a.nav-cta {
   background: var(--navy);
   color: #fff;
